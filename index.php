@@ -1,6 +1,9 @@
 <?php
+error_reporting(0);
+$ciudad = $_POST["ciudad"] ?? "Barcelona";
 
-$ciudad = "helsinki";
+
+// $ciudad = "helsinki";
 
 if ($_POST) {
     $ciudad = $_POST["ciudad"];
@@ -86,15 +89,15 @@ $humidity = $jsonMeteo['main']['humidity'];
             </div>
         </div>
         <div class="div_text">
-            <p>Temperatura: <?= $temperatura ?> ºC</p>
+            <p class="temp">Temperatura: <?= $temperatura ?> ºC</p>
             <p>Temperatura maxima: <?= $temp_max ?> ºC</p>
-            <p>Temperatura minima: <?= $temp_min ?> ºC</p>
+            <p >Temperatura minima: <?= $temp_min ?> ºC</p>
             <p>Sensacion de temperatura: <?= $sensa_temp ?> ªC</p>
             <p>Humedad: <?= $humidity ?></p>
         </div>
     </div>
 <?php else : ?>
-    <p>Introduce una ciudad correcta</p>
+    <p class="warning">Introduce una ciudad correcta</p>
     
 <?php endif; ?>    
     <style>
@@ -115,7 +118,7 @@ $humidity = $jsonMeteo['main']['humidity'];
 
         .container {
             background-color: white;
-            margin-top: 80px;
+            margin-top: 40px;
             width: 600px;
             height: 650px;
             border: 2px solid grey;
@@ -187,9 +190,29 @@ $humidity = $jsonMeteo['main']['humidity'];
             height: 40px;
             width: 300px;
             text-align: center;
-            font-size: 20px;
-            border: none;
+            font-size: 30px;
+            border: none !important;
         }
+
+        input:focus {
+            outline: none;
+        }
+
+        .warning {
+            text-align: center;
+            font-size: 50px;
+            color: darkred;
+            margin-top: 50px;
+        }
+
+        .temp {
+            font-size: 40px !important;
+        }
+
+        .div_text p {
+            font-size: 18px;
+        }
+   
     </style>
 
 
