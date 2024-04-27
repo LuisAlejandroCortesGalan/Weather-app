@@ -78,142 +78,190 @@ $humidity = $jsonMeteo['main']['humidity'];
                 <button type="submit">Enviar</button>
             </form>
         </div>
-        <?php if(isset($jsonMeteo["name"])) : ?>
-        <div class="div_title">
-            <div class="title_text">
-                <p>Pais: <?= $country ?></p>
-                <p>Ciudad: <?= $ciudad ?></p>
+        <?php if (isset($jsonMeteo["name"])) : ?>
+            <div class="div_title">
+                <div class="title_text">
+                    <p>Pais: <?= $country ?></p>
+                    <p>Ciudad: <?= $ciudad ?></p>
+                </div>
+                <div>
+                    <img src="<?= $ruta_icons . $nombre_icon ?>.svg" alt="Icono del tiempo">
+                </div>
             </div>
-            <div>
-                <img src="<?= $ruta_icons . $nombre_icon ?>.svg" alt="Icono del tiempo">
+            <div class="div_text">
+                <p class="temp">Temperatura: <?= $temperatura ?> ºC</p>
+                <p>Temperatura maxima: <?= $temp_max ?> ºC</p>
+                <p>Temperatura minima: <?= $temp_min ?> ºC</p>
+                <p>Sensacion de temperatura: <?= $sensa_temp ?> ªC</p>
+                <p>Humedad: <?= $humidity ?></p>
             </div>
-        </div>
-        <div class="div_text">
-            <p class="temp">Temperatura: <?= $temperatura ?> ºC</p>
-            <p>Temperatura maxima: <?= $temp_max ?> ºC</p>
-            <p >Temperatura minima: <?= $temp_min ?> ºC</p>
-            <p>Sensacion de temperatura: <?= $sensa_temp ?> ªC</p>
-            <p>Humedad: <?= $humidity ?></p>
-        </div>
     </div>
 <?php else : ?>
     <p class="warning">Introduce una ciudad correcta</p>
-    
-<?php endif; ?>    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #d2d6d2;
-            position: relative;
+<?php endif; ?>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #d2d6d2;
+        position: relative;
 
+    }
+
+    .container {
+        background-color: white;
+        margin-top: 40px;
+        width: 600px;
+        height: 650px;
+        border: 6px solid grey;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    button {
+        width: 100px;
+        height: 30px;
+        background-color: #2d57cc;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .div_title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding: 0 50px;
+    }
+
+    .title_text p {
+        font-size: 30px;
+    }
+
+    .div_text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 50px;
+        gap: 15px;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    label {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .input {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #ciudad {
+        height: 40px;
+        width: 300px;
+        text-align: center;
+        font-size: 30px;
+        border: none !important;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .warning {
+        text-align: center;
+        font-size: 50px;
+        color: darkred;
+        margin-top: 50px;
+    }
+
+    .temp {
+        font-size: 40px !important;
+    }
+
+    .div_text p {
+        font-size: 18px;
+    }
+
+
+
+
+
+
+
+
+    @media screen and (max-width: 600px) {
         .container {
-            background-color: white;
-            margin-top: 40px;
-            width: 600px;
-            height: 650px;
-            border: 2px solid grey;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
+            max-width: 350px;
+            width: auto;
+            height: auto;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
 
-        button {
-            width: 100px;
-            height: 30px;
-            background-color: #2d57cc;
-            border-radius: 5px;
-            color: white;
+        .temp {
+            font-size: 30px;
+            text-align: center;
+
         }
 
         .div_title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding: 0 50px;
-        }
-
-        .title_text p {
-            font-size: 30px;
-        }
-
-        .div_text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 50px;
-            gap: 20px;
-        }
-
-        img {
-            width: 200px;
-            height: 200px;
-        }
-
-        p {
-            font-size: 20px;
-            font-weight: bold;
+            justify-content: center;
         }
 
         label {
-            font-size: 40px;
-            font-weight: bold;
-        }
-
-        .input {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        #ciudad {
-            height: 40px;
-            width: 300px;
             text-align: center;
-            font-size: 30px;
-            border: none !important;
-        }
-
-        input:focus {
-            outline: none;
-        }
-
-        .warning {
-            text-align: center;
-            font-size: 50px;
-            color: darkred;
-            margin-top: 50px;
-        }
-
-        .temp {
-            font-size: 40px !important;
         }
 
         .div_text p {
-            font-size: 18px;
+            text-align: center;
         }
-   
-    </style>
+
+    }
+
+
+
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+
+        .container {
+            margin-top: 80px;
+            height: 700px;
+            border: 4px solid grey;
+            border-radius: 15px;
+            display: flex;
+        }
+
+    }
+</style>
 
 
 </body>
