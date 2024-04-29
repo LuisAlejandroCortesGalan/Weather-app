@@ -222,7 +222,7 @@ $humidity = $jsonMeteo['main']['humidity'];
 
     @media screen and (max-width: 600px) {
         .container {
-            max-width: 360px;
+            max-width: 370px;
             width: auto;
             height: auto;
         }
