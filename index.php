@@ -60,7 +60,7 @@ $humidity = $jsonMeteo['main']['humidity'];
 <body style="<?php if ($temperatura > 33) {
                     echo "background-color: #eb7915;";
                 } else if ($temperatura > 28 && $temperatura < 33) {
-                    echo "background-color: #7f8082;";
+                    echo "background-color: #cc6708;";
                 } else if ($temperatura > 18 && $temperatura < 28) {
                     echo "background-color: #88eb10;";
                 } else if ($temperatura > 12 && $temperatura < 18) {
@@ -212,12 +212,6 @@ $humidity = $jsonMeteo['main']['humidity'];
     .div_text p {
         font-size: 18px;
     }
-
-
-
-
-
-
 
 
     @media screen and (max-width: 600px) {
