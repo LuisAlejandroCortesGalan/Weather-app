@@ -54,6 +54,7 @@ $humidity = $jsonMeteo['main']['humidity'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Meteo</title>
+    <link rel="shortcut icon" href="img/weather-forecast.png" type="image/x-icon">
 
 </head>
 
